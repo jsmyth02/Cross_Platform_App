@@ -1,0 +1,9 @@
+.ui-listview>.ui-li-static {
+	padding: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#reminderSwitch {
+	margin: 1.1em 0;
+}

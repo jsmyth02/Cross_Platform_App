@@ -1,0 +1,310 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>nativeDroid II - jQueryMobile Template</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css" />
+	<link rel="stylesheet" href="vendor/waves/waves.min.css" />
+	<link rel="stylesheet" href="vendor/wow/animate.css" />
+	<link rel="stylesheet" href="css/nativedroid2.css" />
+	<link rel="stylesheet" href="css/myStyles.css" />
+
+	<script type="text/javascript" src="cordova.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+	
+
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+</head>
+<body>
+
+<div data-role="page" id="home">
+
+	<!-- bottom panel -->
+	<div data-role="panel" id="homemenu" data-animate="false" data-position='bottom' data-display="overlay">
+
+		<div class='row around-xs'>
+			<div class='col-xs-auto'>
+				<a href='#home' class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false'><i class='zmdi zmdi-assignment zmd-2x'></i><strong>Current Plan</strong></a>
+			</div>
+			<div class='col-xs-auto'>
+				<a href='#newPlan' class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false'><i class='zmdi zmdi-plus zmd-2x'></i><strong>New Task</strong></a>
+			</div>
+			<div class='col-xs-auto'>
+				<a href='#search' class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false'><i class='zmdi zmdi-search zmd-2x'></i><strong>Search</strong></a>
+			</div>
+		</div>
+
+	</div>
+	<!-- end of bottom panel -->
+
+	<!-- header -->
+	<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+		<h1 class="wow fadeIn" data-wow-delay='0.4s'>Study Planner</h1>
+	</div>
+	<!-- end of header -->
+
+	<!-- main -->
+  	<div role="main" class="ui-content" data-inset="false">
+
+		<div class="row" id="listTasks">
+
+			<div class="nd2-card">
+
+				<div class="card-supporting-text">
+	
+					<h5 id="dbtest" >You currently have no planned tasks</h5>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<a  href="#homemenu" name="fab"
+							class="ui-btn
+							ui-btn-inline
+							ui-btn-fab
+							ui-btn-fab-bottom
+							ui-btn-raised
+							clr-primary"
+							>
+							<i class="zmdi zmdi-menu"></i>
+		</a>
+
+  	</div>
+  	<!-- end of main -->
+
+</div> 
+
+<div data-role="page" id="newPlan">
+
+	<!-- bottom panel -->
+	<div data-role="panel" id="newplanmenu" data-animate="false" data-position='bottom' data-display="overlay">
+
+		<div class='row around-xs'>
+			<div class='col-xs-auto'>
+				<a href='#home' class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false'><i class='zmdi zmdi-assignment zmd-2x'></i><strong>Current Plan</strong></a>
+			</div>
+			<div class='col-xs-auto'>
+				<a href='#newPlan' class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false'><i class='zmdi zmdi-plus zmd-2x'></i><strong>New Task</strong></a>
+			</div>
+			<div class='col-xs-auto'>
+				<a href='#search' class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false'><i class='zmdi zmdi-search zmd-2x'></i><strong>Search</strong></a>
+			</div>
+		</div>
+
+	</div>
+	<!-- end of bottom panel -->
+
+	<!-- header -->
+	<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+		<h1 class="wow fadeIn" data-wow-delay='0.4s'>New Task</h1>
+	</div>
+	<!-- end of header -->
+
+	<!-- main -->
+  	<div role="main" class="ui-content" data-inset="false">
+
+  		<div class="nd2-card">
+
+			<div class="card-supporting-text">
+			
+				<h5>Task Title: </h5>
+
+                <input type="text" id="taskName" value="" data-clear-btn="true" placeholder="Input task name here...">
+
+                <h5>Module: </h5>
+
+                <input type="text" id="moduleName" value="" data-clear-btn="true" placeholder="Input module name here...">
+
+                <h5>Description: </h5>
+
+                <textarea cols="40" rows="8" id="taskDescription" placeholder="Enter description"></textarea>
+
+                <h5>Date: </h5>
+
+                <input type="date" id="selectedDate" value="" data-clear-btn="true" placeholder="">
+
+                <h5>Time: </h5>
+
+                <input type="time" id="selectedTime" value="" data-clear-btn="true" placeholder="">
+
+                <div class="row">
+	                <h5 class="col-xs-4">Reminder?</h5>
+	                <div class="col-xs-8" id="reminderSwitch">
+	                <select name="flip2" data-role="flipswitch" id="reminder">
+	                            <option value="off">Off</option>
+	                            <option value="on">On</option>
+	                </select>
+	                </div>
+                </div>
+
+                <div id="reminderDiv">
+	                <select id="selectReminderTime" data-native-menu="false">
+	                    <option value="onTime">On time</option>
+	                    <option value="fiveMins">5 minutes before</option>
+	                    <option value="tenMins">10 minutes before</option>
+	                    <option value="twentyMins">20 minutes before</option>
+	                    <option value="thirtyMins">30 minutes before</option>
+	                </select>
+                </div>
+
+                <button class="ui-btn" id="saveButton"><i class="zmdi zmdi-mail-send"></i>Save</button>
+	
+			</div>
+
+		</div>
+
+		<a  href="#newplanmenu" name="fab"
+							class="ui-btn
+							ui-btn-inline
+							ui-btn-fab
+							ui-btn-fab-bottom
+							ui-btn-raised
+							clr-primary"
+							>
+							<i class="zmdi zmdi-menu"></i>
+		</a>
+
+  	</div>
+  	<!-- end of main -->
+
+</div> 
+
+<div data-role="page" id="search">
+
+	<!-- bottom panel -->
+	<div data-role="panel" id="searchmenu" data-animate="false" data-position='bottom' data-display="overlay">
+
+		<div class='row around-xs'>
+			<div class='col-xs-auto'>
+				<a href='#home' class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false'><i class='zmdi zmdi-assignment zmd-2x'></i><strong>Current Plan</strong></a>
+			</div>
+			<div class='col-xs-auto'>
+				<a href='#newPlan' class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false'><i class='zmdi zmdi-plus zmd-2x'></i><strong>New Task</strong></a>
+			</div>
+			<div class='col-xs-auto'>
+				<a href='#search' class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false'><i class='zmdi zmdi-search zmd-2x'></i><strong>Search</strong></a>
+			</div>
+		</div>
+
+	</div>
+	<!-- end of bottom panel -->
+	
+	<!-- header -->
+	<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+		<h1 class="wow fadeIn" data-wow-delay='0.4s'>Search Wikipedia</h1>
+	</div>
+	<!-- end of header -->
+
+	<!-- main -->
+  	<div role="main" class="ui-content" data-inset="false">
+  		<input type="text" id="searchQuery" value="" data-clear-btn="true" placeholder="What are you searching for?">
+  		<button class="ui-btn" id="searchButton"><i class="zmdi zmdi-search"></i>Search</button>
+  		</span>
+
+  		<div data-role="collapsible-set" data-inset="false" id="searchList">
+
+		</div>
+
+  		<a  href="#searchmenu" name="fab"
+							class="ui-btn
+							ui-btn-inline
+							ui-btn-fab
+							ui-btn-fab-bottom
+							ui-btn-raised
+							clr-primary"
+							>
+							<i class="zmdi zmdi-menu"></i>
+		</a>
+  	</div>
+  	<!-- end of main -->
+
+</div> 
+
+<div data-role="page" id="taskView">
+
+	<!-- bottom panel -->
+	<div data-role="panel" id="taskmenu" data-animate="false" data-position='bottom' data-display="overlay">
+
+		<div class='row around-xs'>
+			<div class='col-xs-auto'>
+				<a href='#home' class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false'><i class='zmdi zmdi-assignment zmd-2x'></i><strong>Current Plan</strong></a>
+			</div>
+			<div class='col-xs-auto'>
+				<a href='#newPlan' class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false'><i class='zmdi zmdi-plus zmd-2x'></i><strong>New Task</strong></a>
+			</div>
+			<div class='col-xs-auto'>
+				<a href='#search' class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false'><i class='zmdi zmdi-search zmd-2x'></i><strong>Search</strong></a>
+			</div>
+		</div>
+
+	</div>
+	<!-- end of bottom panel -->
+	
+	<!-- header -->
+	<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+		<h1 class="wow fadeIn" data-wow-delay='0.4s'>Task</h1>
+	</div>
+	<!-- end of header -->
+
+	<!-- main -->
+  	<div role="main" class="ui-content" data-inset="false">
+  		
+  		<div class="nd2-card">
+
+			<div class="card-supporting-text">
+			
+				<h3 id="taskTitle">Design UI for Application</h3>
+				<h5 class="card-subtitle" id="taskDateTime">20/3/2016  19:30</h5>
+		
+			</div>
+
+			<div class="card-supporting-text has-action has-title" id="taskDescriptionView">
+					Design the application UI elements using Lo-Fi prototypes	
+			</div>
+
+			<div class="card-action">
+				<div class="col-xs-8 align-right">
+					<div class="box">
+						<a href="#newPlan" class="ui-btn ui-btn-inline">Edit</a>
+						<a href="#" class="ui-btn ui-btn-inline" id="taskDelete">Delete</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		</div>
+
+  		<a  href="#taskmenu" name="fab"
+							class="ui-btn
+							ui-btn-inline
+							ui-btn-fab
+							ui-btn-fab-bottom
+							ui-btn-raised
+							clr-primary"
+							>
+							<i class="zmdi zmdi-menu"></i>
+		</a>
+  	</div>
+  	<!-- end of main -->
+
+</div> 
+
+<script src="vendor/waves/waves.min.js"></script>
+<script src="vendor/wow/wow.min.js"></script>
+<script src="js/nativedroid2.js"></script>
+<!-- 	<script src="js/jquery-2.2.2.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script> -->
+<script src="js/studyplanner.js"></script>
+
+</body>
+</html>
